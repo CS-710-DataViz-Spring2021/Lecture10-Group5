@@ -25,11 +25,11 @@ p1 <- ggplot(beaver_1, aes(x=TimePoint, y=temp))+
 p1
 ```
 
-
+Ideally we would like to separate the active portions of the graph
 
 ```{r}
-p2 <- ggplot(beaver_1, aes(x=TimePoint, y=temp, color=factor(activ)))+
-      geom_line()+
+p2 <- ggplot(beaver_1, aes(x=TimePoint, color=factor(activ)))+
+      geom_line(aes(y=temp))+
       xlab("Time (mins)") + ylab("Temperature (C)") +
       labs(title = "The time trend of beavers' temperature (beaver1)", color="Activity") +
       theme(plot.title = element_text(hjust = 0.5))
