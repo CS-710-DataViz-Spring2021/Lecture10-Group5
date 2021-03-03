@@ -1,0 +1,58 @@
+---
+title: "BeaversTemperature"
+author: "Nannan Peng"
+date: "3/2/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Beavers' Temperature Plots
+
+
+```{r}
+library(ggplot2)
+beaver_1 <- data.frame(TimePoint=(1:dim(beaver1)[1])*10, beaver1)
+
+p1 <- ggplot(beaver_1, aes(x=TimePoint, y=temp))+
+      geom_line(color="blue")+
+      xlab("Time (mins)") + ylab("Temperature (C)") +
+      labs(title = "The time trend of beavers' temperature (beaver1)") +
+      theme(plot.title = element_text(hjust = 0.5))
+
+p1
+```
+
+
+
+```{r}
+p2 <- ggplot(beaver_1, aes(x=TimePoint, y=temp, color=factor(activ)))+
+      geom_line()+
+      xlab("Time (mins)") + ylab("Temperature (C)") +
+      labs(title = "The time trend of beavers' temperature (beaver1)", color="Activity") +
+      theme(plot.title = element_text(hjust = 0.5))
+
+p2
+```
+```{r}
+beaver_2 <- data.frame((TimePoint=1:dim(beaver2)[1])*10, beaver2)
+
+p3 <- ggplot(beaver_2, aes(x=TimePoint, y=temp))+
+      geom_line(color="blue")+
+      xlab("Time (mins)") + ylab("Temperature (C)") +
+      labs(title = "The time trend of beavers' temperature (beaver2)") +
+      theme(plot.title = element_text(hjust = 0.5))
+
+p3
+```
+```{r}
+p4 <- ggplot(beaver_2, aes(x=TimePoint, y=temp, color=factor(activ)))+
+      geom_line()+
+      xlab("Time (mins)") + ylab("Temperature (C)") +
+      labs(title = "The time trend of beavers' temperature (beaver2)", color="Activity") +
+      theme(plot.title = element_text(hjust = 0.5))
+
+p4
+```
